@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+<body>
+<div id="app"></div>
+<script type="text/babel">
+
+//    function App() {
+//        return (
+//         <div>
+//             <p>can you hear me </p>
+//         </div>
+//        )  
+//    }
+
+class APP extends React.Component {
+       render(){
+        return (
+        <div>
+            <Header />
+            <Content />
+            <Footer />
+        </div>
+       )  
+       }
+   }
+//header component
+class Header extends React.Component {
+       render(){
+           return(
+               <header>Header</header>
+               )
+            }
+        }
+//content component
+class Content extends React.Component {
+            render(){
+                return(
+                    <main>content</main>
+                    )
+                }
+            }
+//footer component       
+class Footer extends React.Component {
+                render(){
+                    return(
+                        <footer>Footer</footer>
+                        )
+                    }
+                }
+ReactDOM.render(<APP /> ,document.getElementById('app')) 
+            </script>
+</body>
+</html>
