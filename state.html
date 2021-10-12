@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+<body>
+<div id="app"></div>
+<script type="text/babel">
+
+// state as js object =>private feature belong to single component => hold data about the component => state can be changed => props cant be changed
+class APP extends React.Component {
+    state = {
+     name :'app component' ,
+    }
+       render(){
+        return (
+        <div>
+            <p> {this.state.name} </p>
+            <Header  title='header'/>
+            <Content name='content'/>
+            <Footer name='footer'/>
+        </div>
+       )  
+       }
+   }
+//header component [child]
+class Header extends React.Component {
+    // state priveit can be define in its scop
+    state ={
+    name: 'header state'
+    }
+       render(){
+           return(
+               <header>{this.props.title} and state{this.state.name}</header>
+               )
+            }
+        }
+//content component [child]
+class Content extends React.Component {
+    state ={
+    name: 'content state'
+    }
+            render(){
+                return(
+                    <main>{this.props.name} and {this.state.name}</main>
+                    )
+                }
+            }
+//footer component [child]    
+class Footer extends React.Component {
+    state ={
+    title: 'content state'
+    }
+                render(){
+                    return(
+                        <footer>{this.props.name} and {this.state.title}</footer>
+                        )
+                    }
+                }
+ReactDOM.render(<APP /> ,document.getElementById('app')) 
+            </script>
+</body>
+</html>
