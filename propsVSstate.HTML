@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+  //APP COMPONENT {parent}
+  class App extends React.Component {
+      state ={
+          parent : 'app component '
+      }
+      render(){
+          return (
+              // pass state as  props
+            <div>
+                parent component
+                <Child name = {this.state.parent}/>
+                state of this component is {this.state.parent}
+            </div>
+          )              
+          
+      }
+  }  
+// {chlild component}
+// defin the component using CLASS ****
+
+class Child extends React.Component {
+    render(){
+        return(
+            <p>Child component and props is {this.props.name}</p>
+        )
+    }
+}
+ 
+// prpos as function parameter
+// function Child(props) {
+//     return (
+//         <p> Child component and props is {props.name}</p>
+//     )
+    
+// }
+
+  ReactDOM.render(<App /> , document.getElementById('app'))    
+    </script>  
+</body>
+</html>
